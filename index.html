@@ -21,6 +21,11 @@
           <img src="logo.svg" alt="Logo" width="42" height="42">
         </div>
       </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+
       <nav class="nav-links">
         <a href="#" class="nav-link active">Find Jobs</a>
         <a href="#" class="nav-link">Top Companies</a>
@@ -300,7 +305,7 @@
           <span class="promoted-badge">Promoted</span>
           <div class="job-header">
             <div class="company-logo" style="background:#FFF5C2;">
-              <img src="https://pngimg.com/uploads/amazon/amazon_PNG5.png" alt="Microsoft" width="32" height="26">
+              <img src="https://pngimg.com/uploads/amazon/amazon_PNG5.png" alt="Amazon" width="32" height="26">
             </div>
 
             <div>
@@ -325,7 +330,7 @@
           <div class="job-header">
             <div class="company-logo" style="background:#EBFFF1;">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJg75LWB1zIJt1VTZO7O68yKciaDSkk3KMdw&s"
-                alt="Microsoft" width="32" height="32">
+                alt="Google" width="32" height="32">
             </div>
             <div>
               <p class="job-title">Visual Designer</p>
@@ -348,7 +353,7 @@
           <span class="promoted-badge">Promoted</span>
           <div class="job-header">
             <div class="company-logo" style="background:#fce4ec;">
-              <img src="Airbnb-logo.png" alt="Microsoft" width="32" height="32">
+              <img src="Airbnb-logo.png" alt="Airbnb" width="32" height="32">
             </div>
             <div>
               <p class="job-title">Interaction Designer</p>
@@ -397,6 +402,15 @@
 
     </section>
   </main>
+
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show-menu');
+    });
+  </script>
 
 </body>
 

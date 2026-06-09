@@ -618,3 +618,82 @@ button {
 .btn-bookmark:hover {
   background: #f3f4f6;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================= */
+
+/* Hide the hamburger button on desktop screens */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1a1a2e;
+}
+
+/* For Tablets and smaller screens (under 992px) */
+@media (max-width: 992px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .calendar-card {
+    max-width: 100%;
+  }
+}
+
+/* For Mobile Phones (under 768px) */
+@media (max-width: 768px) {
+
+  /* 1. Show the hamburger button */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 2. Turn the navigation links into a dropdown menu */
+  .nav-links {
+    display: none;
+    /* Hidden by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 16px;
+    border-bottom: 1px solid #e9ecef;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  /* 3. Class turned on/off by Javascript */
+  .nav-links.show-menu {
+    display: flex;
+  }
+
+  /* 4. Hide resume button on mobile */
+  .btn-resume {
+    display: none;
+  }
+
+  /* 5. Stack the search area vertically */
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .divider-v {
+    width: 100%;
+    height: 1px;
+  }
+
+  .btn-search {
+    justify-content: center;
+  }
+}
