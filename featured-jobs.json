@@ -1,47 +1,47 @@
 [
-      {
-        title: "UI/UX Designer",
-        company: "Teams",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
-        logoBg: "#ede9fe",
-        location: "Seattle, USA (Remote)",
-        time: "1 day ago",
-        applicants: 22
-      },
-      {
-        title: "UI/UX Designer",
-        company: "Teams",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
-        logoBg: "#ede9fe",
-        location: "New York, USA (Remote)",
-        time: "2 day ago",
-        applicants: 42
-      },
-      {
-        title: "UI/UX Designer",
-        company: "Teams",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
-        logoBg: "#ede9fe",
-        location: "Austin, USA",
-        time: "1 day ago",
-        applicants: 15
-      },
-      {
-        title: "UI/UX Designer",
-        company: "Teams",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
-        logoBg: "#ede9fe",
-        location: "Mountain View, USA",
-        time: "4 days ago",
-        applicants: 67
-      },
-      {
-        title: "UI/UX Designer",
-        company: "Teams",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
-        logoBg: "#ede9fe",
-        location: "Houston, USA",
-        time: "2 days ago",
-        applicants: 25
-      }
-    ]
+  {
+    "title": "UI/UX Designer",
+    "company": "Teams",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
+    "logoBg": "#ede9fe",
+    "location": "Seattle, USA (Remote)",
+    "time": "1 day ago",
+    "applicants": 22
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "Teams",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
+    "logoBg": "#ede9fe",
+    "location": "New York, USA (Remote)",
+    "time": "2 day ago",
+    "applicants": 42
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "Teams",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
+    "logoBg": "#ede9fe",
+    "location": "Austin, USA",
+    "time": "1 day ago",
+    "applicants": 15
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "Teams",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
+    "logoBg": "#ede9fe",
+    "location": "Mountain View, USA",
+    "time": "4 days ago",
+    "applicants": 67
+  },
+  {
+    "title": "UI/UX Designer",
+    "company": "Teams",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/500px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png",
+    "logoBg": "#ede9fe",
+    "location": "Houston, USA",
+    "time": "2 days ago",
+    "applicants": 25
+  }
+]
