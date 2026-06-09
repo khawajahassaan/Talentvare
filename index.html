@@ -225,16 +225,16 @@
     async function loadFeaturedJobs() {
       try {
         const response = await fetch('featured-jobs.json');
-        allFeaturedJobs = await response.json(); // Save to global variable
-        renderJobs(allFeaturedJobs, 'featured-jobs-container'); // Draw them
+        allFeaturedJobs = await response.json(); 
+        renderJobs(allFeaturedJobs, 'featured-jobs-container');
       } catch (error) { console.error("Error loading featured jobs:", error); }
     }
 
     async function loadRecommendedJobs() {
       try {
         const response = await fetch('recommended-jobs.json');
-        allRecommendedJobs = await response.json(); // Save to global variable
-        renderJobs(allRecommendedJobs, 'recommended-jobs-container'); // Draw them
+        allRecommendedJobs = await response.json(); 
+        renderJobs(allRecommendedJobs, 'recommended-jobs-container'); 
       } catch (error) { console.error("Error loading recommended jobs:", error); }
     }
 
@@ -263,6 +263,8 @@
       } catch (error) { console.error("Error loading calendar:", error); }
     }
 
+    
+
     const searchInput = document.getElementById('searchInput');
     const locationFilter = document.getElementById('locationFilter');
     const typeFilter = document.getElementById('typeFilter');
@@ -281,7 +283,7 @@
                                 job.location.toLowerCase().includes(locationVal);
 
         const matchesType = typeVal === 'all' || 
-                            (job.type && job.type.toLowerCase().includes(typeVal));
+                            (!job?.type && job?.type.toLowerCase().includes(typeVal));
 
         return matchesSearch && matchesLocation && matchesType;
       };
