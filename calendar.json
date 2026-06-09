@@ -1,0 +1,14 @@
+[
+      {
+        company: "Figma",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+        role: "UI UX Designer",
+        meta: "Figma • 16th Feb | 13:45 | Remote"
+      },
+      {
+        company: "Slack",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
+        role: "Product Designer",
+        meta: "Slack • 18th Feb | 10:00 | On-site"
+      }
+]

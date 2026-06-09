@@ -1,0 +1,47 @@
+[
+	{
+        title: "Product Designer",
+        company: "Microsoft",
+        logo: "https://www.citypng.com/public/uploads/preview/hd-windows-11-logo-icon-transparent-background-701751694967888zqtluh5aaw.png",
+        logoBg: "#e8f4fd",
+        location: "Redmond, USA (Hybrid)",
+        time: "1 day ago",
+        applicants: 18
+      },
+      {
+        title: "UX Researcher",
+        company: "Amazon",
+        logo: "https://pngimg.com/uploads/amazon/amazon_PNG5.png",
+        logoBg: "#FFF5C2",
+        location: "Seattle, USA (Remote)",
+        time: "2 days ago",
+        applicants: 42
+      },
+      {
+        title: "Visual Designer",
+        company: "Google",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJg75LWB1zIJt1VTZO7O68yKciaDSkk3KMdw&s",
+        logoBg: "#EBFFF1",
+        location: "Mountain View, USA",
+        time: "3 days ago",
+        applicants: 67
+      },
+      {
+        title: "Interaction Designer",
+        company: "Airbnb",
+        logo: "Airbnb-logo.png",
+        logoBg: "#fce4ec",
+        location: "San Francisco, USA",
+        time: "4 days ago",
+        applicants: 33
+      },
+      {
+        title: "UI Designer",
+        company: "Meta",
+        logo: "https://img.magnific.com/premium-vector/facebook-logo_756316-1577.jpg?semt=ais_hybrid&w=740&q=80",
+        logoBg: "#e3f2fd",
+        location: "Menlo Park, USA (Remote)",
+        time: "5 days ago",
+        applicants: 55
+      }
+]
