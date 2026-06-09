@@ -139,8 +139,7 @@ a {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 24px;
-  max-width: 1400px;
-  margin: 24px auto;
+  margin: 24px 0;
   padding: 0 24px;
   align-items: start;
 }
@@ -464,7 +463,6 @@ button {
   background: #f3f4f6;
 }
 
-/* Section Header */
 .section-header {
   display: flex;
   align-items: center;
@@ -489,25 +487,10 @@ button {
 }
 
 
-/* ===============================
-   MICRO LAYOUT (Horizontal Scroll Cards)
-   =============================== */
 .jobs-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
-  overflow-x: auto; /* This brings the horizontal scroll back! */
-  padding-bottom: 12px;
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
-}
-
-/* Custom Webkit Scrollbar for Chrome/Safari */
-.jobs-row::-webkit-scrollbar {
-  height: 6px;
-}
-.jobs-row::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
 }
 
 .job-card {
@@ -515,12 +498,10 @@ button {
   border: 1px solid #e9ecef;
   border-radius: 12px;
   padding: 16px;
-  min-width: 240px; /* Locks the size so they are forced to scroll horizontally */
-  max-width: 240px;
-  flex-shrink: 0; /* Prevents the browser from squishing them */
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%; 
 }
 
 .promoted-badge {
