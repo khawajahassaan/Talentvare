@@ -84,14 +84,16 @@
       </div>
 
       <div class="calendar-card">
-        <div class="calendar-header">
+        <div class="calendar-header" id="calendarToggle" style="cursor: pointer;">
           <span class="calendar-title">My calendar</span>
-          <span class="icon-chevron">&#x2304;</span>
+          <span class="icon-chevron" id="calendarIcon">&#x2304;</span>
         </div>
-        <p class="calendar-sub">Upcoming Interviews</p>
-
-        <div id="calendar-items-container">
-          </div>
+        
+        <div class="calendar-body" id="calendarBody">
+          <p class="calendar-sub">Upcoming Interviews</p>
+          <div id="calendar-items-container">
+            </div>
+        </div>
       </div>
 
     </aside>
@@ -141,9 +143,9 @@
         
         <div class="similar-tags">
           <span class="tag-label">Similar:</span>
-          <span class="tag">Frontend</span>
-          <span class="tag">Backend</span>
-          <span class="tag">Graphic Designer</span>
+          <span class="tag">UI/UX</span>
+          <span class="tag">Visual Designer</span>
+          <span class="tag">UX Researcher</span>
         </div>
       </div>
 
@@ -294,6 +296,29 @@
     searchInput.addEventListener('input', applyFilters); 
     locationFilter.addEventListener('change', applyFilters); 
     typeFilter.addEventListener('change', applyFilters); 
+
+
+    const similarTags = document.querySelectorAll('.tag');
+
+    similarTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        const tagText = tag.innerText;
+        searchInput.value = tagText;
+        applyFilters();
+      });
+    });
+
+    const calendarToggle = document.getElementById('calendarToggle');
+    const calendarBody = document.getElementById('calendarBody');
+    const calendarIcon = document.getElementById('calendarIcon');
+
+    calendarToggle.addEventListener('click', () => {
+  
+      calendarBody.classList.toggle('collapsed');
+
+      calendarIcon.classList.toggle('rotated');
+    });
+
 
     loadFeaturedJobs();
     loadRecommendedJobs();

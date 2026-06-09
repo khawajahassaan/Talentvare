@@ -647,17 +647,14 @@ button {
   }
 }
 
-/* For Mobile Phones (under 768px) */
 @media (max-width: 768px) {
 
-  /* 1. Show the hamburger button */
   .mobile-menu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* 2. Turn the navigation links into a dropdown menu */
   .nav-links {
     display: none;
     /* Hidden by default */
@@ -672,17 +669,14 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   }
 
-  /* 3. Class turned on/off by Javascript */
   .nav-links.show-menu {
     display: flex;
   }
 
-  /* 4. Hide resume button on mobile */
   .btn-resume {
     display: none;
   }
 
-  /* 5. Stack the search area vertically */
   .search-box {
     flex-direction: column;
     align-items: stretch;
@@ -696,4 +690,25 @@ button {
   .btn-search {
     justify-content: center;
   }
+}
+
+.calendar-body {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.35s ease-in-out, opacity 0.35s ease-in-out;
+  opacity: 1;
+}
+
+.calendar-body.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.icon-chevron {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.icon-chevron.rotated {
+  transform: rotate(180deg);
 }
