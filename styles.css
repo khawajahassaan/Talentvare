@@ -26,6 +26,7 @@ a {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid #e9ecef;
+  position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
