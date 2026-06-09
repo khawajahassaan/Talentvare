@@ -107,23 +107,29 @@
         <div class="search-box">
           <input type="text" id="searchInput" placeholder="Job Title, Company, or Keywords" class="search-input" />
           <div class="divider-v"></div>
+          
           <div class="select-wrap">
-            <select class="select-field">
-              <option>Select Location</option>
-              <option>New York, USA</option>
-              <option>San Francisco, USA</option>
-              <option>Remote</option>
+            <select class="select-field" id="locationFilter">
+              <option value="all">Select Location</option>
+              <option value="New York">New York</option>
+              <option value="San Francisco">San Francisco</option>
+              <option value="Mountain View">Mountain View</option>
+              <option value="Redmond">Redmond</option>
+              <option value="Austin">Austin</option>
+              <option value="Remote">Remote</option>
             </select>
           </div>
+          
           <div class="divider-v"></div>
+          
           <div class="select-wrap">
-            <select class="select-field">
-              <option>Job Type</option>
-              <option>Full-time</option>
-              <option>Part-time</option>
-              <option>Remote</option>
+            <select class="select-field" id="typeFilter">
+              <option value="all">Job Type</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
             </select>
           </div>
+          
           <button class="btn-search">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
               <circle cx="11" cy="11" r="8" />
@@ -132,6 +138,7 @@
             Search
           </button>
         </div>
+        
         <div class="similar-tags">
           <span class="tag-label">Similar:</span>
           <span class="tag">Frontend</span>
@@ -255,22 +262,38 @@
     }
 
     const searchInput = document.getElementById('searchInput');
+    const locationFilter = document.getElementById('locationFilter');
+    const typeFilter = document.getElementById('typeFilter');
     
-    searchInput.addEventListener('input', (event) => {
+    function applyFilters() {
 
-      const query = event.target.value.toLowerCase(); 
+      const query = searchInput.value.toLowerCase();
+      const locationVal = locationFilter.value.toLowerCase();
+      const typeVal = typeFilter.value.toLowerCase();
 
-      const filteredFeatured = allFeaturedJobs.filter(job => {
-        return job.title.toLowerCase().includes(query) || job.company.toLowerCase().includes(query);
-      });
+      const filterLogic = (job) => {
+        const matchesSearch = job.title.toLowerCase().includes(query) || 
+                              job.company.toLowerCase().includes(query);
+        
+        const matchesLocation = locationVal === 'all' || 
+                                job.location.toLowerCase().includes(locationVal);
+
+        const matchesType = typeVal === 'all' || 
+                            (job.type && job.type.toLowerCase().includes(typeVal));
+
+        return matchesSearch && matchesLocation && matchesType;
+      };
+
+      const filteredFeatured = allFeaturedJobs.filter(filterLogic);
       renderJobs(filteredFeatured, 'featured-jobs-container');
 
-
-      const filteredRecommended = allRecommendedJobs.filter(job => {
-        return job.title.toLowerCase().includes(query) || job.company.toLowerCase().includes(query);
-      });
+      const filteredRecommended = allRecommendedJobs.filter(filterLogic);
       renderJobs(filteredRecommended, 'recommended-jobs-container');
-    });
+    }
+
+    searchInput.addEventListener('input', applyFilters); 
+    locationFilter.addEventListener('change', applyFilters); 
+    typeFilter.addEventListener('change', applyFilters); 
 
     loadFeaturedJobs();
     loadRecommendedJobs();
