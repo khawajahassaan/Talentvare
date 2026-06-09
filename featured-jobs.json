@@ -6,7 +6,8 @@
     "logoBg": "#ede9fe",
     "location": "Seattle, USA (Remote)",
     "time": "1 day ago",
-    "applicants": 22
+    "applicants": 22,
+    "type": "Part-time"
   },
   {
     "title": "UI/UX Designer",
@@ -15,7 +16,8 @@
     "logoBg": "#ede9fe",
     "location": "New York, USA (Remote)",
     "time": "2 day ago",
-    "applicants": 42
+    "applicants": 42,
+    "type": "Full-time"
   },
   {
     "title": "UI/UX Designer",
@@ -24,7 +26,8 @@
     "logoBg": "#ede9fe",
     "location": "Austin, USA",
     "time": "1 day ago",
-    "applicants": 15
+    "applicants": 15,
+    "type": "Full-time"
   },
   {
     "title": "UI/UX Designer",
@@ -33,7 +36,8 @@
     "logoBg": "#ede9fe",
     "location": "Mountain View, USA",
     "time": "4 days ago",
-    "applicants": 67
+    "applicants": 67,
+    "type": "Part-time"
   },
   {
     "title": "UI/UX Designer",
@@ -42,6 +46,7 @@
     "logoBg": "#ede9fe",
     "location": "Houston, USA",
     "time": "2 days ago",
-    "applicants": 25
+    "applicants": 25,
+    "type": "Full-time"
   }
 ]
