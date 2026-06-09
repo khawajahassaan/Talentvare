@@ -293,9 +293,15 @@
       renderJobs(filteredRecommended, 'recommended-jobs-container');
     }
 
-    searchInput.addEventListener('input', applyFilters); 
-    locationFilter.addEventListener('change', applyFilters); 
-    typeFilter.addEventListener('change', applyFilters); 
+    const searchButton = document.querySelector('.btn-search');
+
+    searchButton.addEventListener('click', applyFilters);
+
+    searchInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        applyFilters();
+      }
+    });
 
 
     const similarTags = document.querySelectorAll('.tag');

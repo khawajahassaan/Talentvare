@@ -136,21 +136,22 @@ a {
 }
 
 .main-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 300px 1fr;
   gap: 24px;
   max-width: 1400px;
   margin: 24px auto;
   padding: 0 24px;
-  align-items: flex-start;
+  align-items: start;
 }
 
 .sidebar {
-  width: 280px;
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
+
 
 .profile-card {
   background: #fff;
@@ -337,7 +338,6 @@ button {
 }
 
 .content {
-  flex: 1;
   min-width: 0;
 }
 
@@ -488,19 +488,23 @@ button {
   text-decoration: underline;
 }
 
+
+/* ===============================
+   MICRO LAYOUT (Horizontal Scroll Cards)
+   =============================== */
 .jobs-row {
   display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding-bottom: 6px;
+  gap: 16px;
+  overflow-x: auto; /* This brings the horizontal scroll back! */
+  padding-bottom: 12px;
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 transparent;
 }
 
+/* Custom Webkit Scrollbar for Chrome/Safari */
 .jobs-row::-webkit-scrollbar {
-  height: 5px;
+  height: 6px;
 }
-
 .jobs-row::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
@@ -511,9 +515,9 @@ button {
   border: 1px solid #e9ecef;
   border-radius: 12px;
   padding: 16px;
-  min-width: 200px;
-  max-width: 210px;
-  flex-shrink: 0;
+  min-width: 240px; /* Locks the size so they are forced to scroll horizontally */
+  max-width: 240px;
+  flex-shrink: 0; /* Prevents the browser from squishing them */
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -619,11 +623,6 @@ button {
   background: #f3f4f6;
 }
 
-/* =========================================
-   RESPONSIVE DESIGN (MOBILE & TABLET)
-   ========================================= */
-
-/* Hide the hamburger button on desktop screens */
 .mobile-menu-btn {
   display: none;
   background: transparent;
@@ -632,14 +631,11 @@ button {
   color: #1a1a2e;
 }
 
-/* For Tablets and smaller screens (under 992px) */
-@media (max-width: 992px) {
-  .main-layout {
-    flex-direction: column;
-  }
 
-  .sidebar {
-    width: 100%;
+@media (max-width: 992px) {
+
+  .main-layout {
+    grid-template-columns: 1fr;
   }
 
   .calendar-card {
