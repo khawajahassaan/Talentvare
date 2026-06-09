@@ -105,7 +105,7 @@
 
       <div class="search-section">
         <div class="search-box">
-          <input type="text" placeholder="Job Title, Company, or Keywords" class="search-input" />
+          <input type="text" id="searchInput" placeholder="Job Title, Company, or Keywords" class="search-input" />
           <div class="divider-v"></div>
           <div class="select-wrap">
             <select class="select-field">
@@ -171,78 +171,61 @@
   </script>
 
   <script>
-    
+
+    let allFeaturedJobs = [];
+    let allRecommendedJobs = [];
+
+    function renderJobs(dataArray, containerId) {
+      const container = document.getElementById(containerId);
+      let html = ''; 
+
+      if (dataArray.length === 0) {
+        container.innerHTML = '<p style="padding: 16px; color: #6b7280; font-size: 14px;">No jobs found matching your search.</p>';
+        return;
+      }
+
+      dataArray.forEach(job => {
+        html += `
+          <div class="job-card">
+            <span class="promoted-badge">Promoted</span>
+            <div class="job-header">
+              <div class="company-logo" style="background:${job.logoBg};">
+                <img src="${job.logo}" alt="${job.company}" width="26" height="26" style="${job.company === 'Meta' ? 'width: 100%; height: auto; padding: 4px;' : ''}">
+              </div>
+              <div>
+                <p class="job-title">${job.title}</p>
+                <p class="company-name">${job.company}</p>
+              </div>
+            </div>
+            <p class="job-location">${job.location}</p>
+            <p class="job-meta">${job.time} | <a href="#" class="applicants-link">${job.applicants} applicants</a></p>
+            <div class="job-footer">
+              <button class="btn-apply">Apply Now</button>
+              <button class="btn-bookmark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
     async function loadFeaturedJobs() {
       try {
         const response = await fetch('featured-jobs.json');
-        const data = await response.json();
-        const container = document.getElementById('featured-jobs-container');
-        let html = ''; 
-
-        data.forEach(job => {
-          html += `
-            <div class="job-card">
-              <span class="promoted-badge">Promoted</span>
-              <div class="job-header">
-                <div class="company-logo" style="background:${job.logoBg};">
-                  <img src="${job.logo}" alt="${job.company}" width="26" height="26">
-                </div>
-                <div>
-                  <p class="job-title">${job.title}</p>
-                  <p class="company-name">${job.company}</p>
-                </div>
-              </div>
-              <p class="job-location">${job.location}</p>
-              <p class="job-meta">${job.time} | <a href="#" class="applicants-link">${job.applicants} applicants</a></p>
-              <div class="job-footer">
-                <button class="btn-apply">Apply Now</button>
-                <button class="btn-bookmark">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2">
-                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          `;
-        });
-        container.innerHTML = html;
+        allFeaturedJobs = await response.json(); // Save to global variable
+        renderJobs(allFeaturedJobs, 'featured-jobs-container'); // Draw them
       } catch (error) { console.error("Error loading featured jobs:", error); }
     }
 
     async function loadRecommendedJobs() {
       try {
         const response = await fetch('recommended-jobs.json');
-        const data = await response.json();
-        const container = document.getElementById('recommended-jobs-container');
-        let html = ''; 
-
-        data.forEach(job => {
-          html += `
-            <div class="job-card">
-              <span class="promoted-badge">Promoted</span>
-              <div class="job-header">
-                <div class="company-logo" style="background:${job.logoBg};">
-                  <img src="${job.logo}" alt="${job.company}" width="26" height="26" style="${job.company === 'Meta' ? 'width: 100%; height: auto; padding: 4px;' : ''}">
-                </div>
-                <div>
-                  <p class="job-title">${job.title}</p>
-                  <p class="company-name">${job.company}</p>
-                </div>
-              </div>
-              <p class="job-location">${job.location}</p>
-              <p class="job-meta">${job.time} | <a href="#" class="applicants-link">${job.applicants} applicants</a></p>
-              <div class="job-footer">
-                <button class="btn-apply">Apply Now</button>
-                <button class="btn-bookmark">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2">
-                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          `;
-        });
-        container.innerHTML = html;
+        allRecommendedJobs = await response.json(); // Save to global variable
+        renderJobs(allRecommendedJobs, 'recommended-jobs-container'); // Draw them
       } catch (error) { console.error("Error loading recommended jobs:", error); }
     }
 
@@ -252,7 +235,6 @@
         const data = await response.json();
         const container = document.getElementById('calendar-items-container');
         let html = ''; 
-
         data.forEach(item => {
           html += `
             <div class="interview-item">
@@ -271,6 +253,24 @@
         container.innerHTML = html;
       } catch (error) { console.error("Error loading calendar:", error); }
     }
+
+    const searchInput = document.getElementById('searchInput');
+    
+    searchInput.addEventListener('input', (event) => {
+
+      const query = event.target.value.toLowerCase(); 
+
+      const filteredFeatured = allFeaturedJobs.filter(job => {
+        return job.title.toLowerCase().includes(query) || job.company.toLowerCase().includes(query);
+      });
+      renderJobs(filteredFeatured, 'featured-jobs-container');
+
+
+      const filteredRecommended = allRecommendedJobs.filter(job => {
+        return job.title.toLowerCase().includes(query) || job.company.toLowerCase().includes(query);
+      });
+      renderJobs(filteredRecommended, 'recommended-jobs-container');
+    });
 
     loadFeaturedJobs();
     loadRecommendedJobs();
