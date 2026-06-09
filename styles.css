@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -24,10 +26,9 @@ a {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid #e9ecef;
-  position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .nav-left {
@@ -168,7 +169,7 @@ a {
   height: 100%;
   object-fit: cover;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
 
@@ -181,16 +182,16 @@ a {
 }
 
 .profile-avatar {
-  width: 90px; 
-  height: 90px; 
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 4px solid #fff; 
+  border: 4px solid #fff;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .profile-info {
-	text-align: center;
+  text-align: center;
   padding: 0 16px 16px;
 }
 
@@ -330,8 +331,8 @@ button {
 }
 
 .badge-deny:hover {
-  background-color: #dc3545; 
-  color: #ffffff;           
+  background-color: #dc3545;
+  color: #ffffff;
 }
 
 .content {
