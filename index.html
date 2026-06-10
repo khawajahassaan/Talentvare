@@ -283,7 +283,7 @@
                                 job.location.toLowerCase().includes(locationVal);
 
         const matchesType = typeVal === 'all' || 
-                            (!job?.type && job?.type.toLowerCase().includes(typeVal));
+                            (job.type && job.type.toLowerCase().includes(typeVal));
 
         return matchesSearch && matchesLocation && matchesType;
       };
